@@ -7,28 +7,42 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dashboard"),
+        title:Text("Dashboard"),
       ),
-      body: Card(
-        child:Column(
-          children: [
-            Container(
-              height: 100,
-              color:Colors.red,
-            ),
-            Text("Name of Product",
-            style: TextStyle(fontWeight: FontWeight.bold,),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body:Row(
+        children: [
+          productCard(),
+          productCard(),
+        ],
+      )
+      );
+  }
+  Widget productCard(){
+    return Expanded(
+      child: Card(
+          child:SizedBox(
+            height: 200,
+            child: Column(
               children: [
-              Text("40",
-              style: TextStyle(color: Colors.red),),
-              Text("39"),
-            ],)
-          ],
-        )
-      ),
+                Container(
+                  height: 100,
+                  color: Colors.red,
+                ),
+                Text('Name  of product',
+                  style:TextStyle(fontWeight: FontWeight.bold)
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                  Text("40",
+                   style:TextStyle(color:Colors.red)
+                  ),
+                  Text("39"),
+                ],)
+              ],
+            ),
+          )
+        ),
     );
   }
 }
