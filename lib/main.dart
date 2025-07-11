@@ -36,13 +36,23 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   TextEditingController userTxtCtr = TextEditingController();
+
   TextEditingController pwdTxtCtr = TextEditingController();
+
   String msg="Message here";
+
   @override
   Widget build(BuildContext context) {
+    print('from bulid method');
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -69,6 +79,9 @@ class LoginPage extends StatelessWidget {
                     msg = "Invalid credentials";
                   }
                   print(msg);
+                  setState(() {
+                    
+                  });
                 },
                 child: Text('Login'),
               ),
