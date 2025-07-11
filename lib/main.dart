@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'E-com APP',
+      title: 'Ecom App',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -36,28 +36,47 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoginPage  extends StatelessWidget {
-  const LoginPage ({super.key});
-
+class LoginPage extends StatelessWidget {
+  LoginPage({super.key});
+  TextEditingController userTxtCtr = TextEditingController();
+  TextEditingController pwdTxtCtr = TextEditingController();
+  String msg="Message here";
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-      children:[
-        Text('Login ',style: TextStyle(fontSize: 50,color:Colors.deepPurple)),
-        Text('User name'),
-        TextField(),
-        Text('Password'),
-        TextField(
-          obscureText: true ,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.only(left:16,right:16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Login',
+                style: TextStyle(fontSize: 50, color: Colors.deepPurple),
+              ),
+              Text('Username'),
+              TextField(controller: userTxtCtr),
+              Text('Password'),
+              TextField(controller: pwdTxtCtr, obscureText: true),
+              ElevatedButton(
+                onPressed: () {
+                  print(
+                    "Button clicked " + userTxtCtr.text + " " + pwdTxtCtr.text,
+                  );
+                  if(userTxtCtr.text==pwdTxtCtr.text){
+                    msg = "Welcome "+userTxtCtr.text;
+                  }else{
+                    msg = "Invalid credentials";
+                  }
+                  print(msg);
+                },
+                child: Text('Login'),
+              ),
+              Text(msg),
+            ],
+          ),
         ),
-        ElevatedButton(onPressed:(){
-          print("Button Clickeddd");
-        },
-          child: Text('Login'),
-        )
-      ],
-    ));
+      ),
+    );
   }
 }
