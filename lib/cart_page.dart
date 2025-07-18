@@ -9,7 +9,7 @@ List<Product> products = [
       productName: "iPhone 15 Pro",
       price: 999.99,
       description: "Latest iPhone with titanium design, A17 Pro chip, and advanced camera system",
-      image: "https://example.com/images/iphone15pro.jpg",
+      image: "lib/assets/image.png",
     ),
     Product(
       productName: "Samsung Galaxy S24 Ultra",
@@ -106,17 +106,18 @@ List<Product> products = [
                 height:100,
                 width:100,
                 color:const Color.fromARGB(255, 183, 183, 58),
+                child: Image.network(product.image,fit: BoxFit.fill,),
               ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('${product.productName}',style:TextStyle(fontSize: 30, overflow: TextOverflow.ellipsis),maxLines: 2,),
-                    Text('${product.productName}',style:TextStyle(fontSize: 15),),
+                    Text('${product.description}',style:TextStyle(fontSize: 15),),
                   ],
                 ),
               ),
-              Text("500",style: TextStyle(fontSize: 50),)
+              Text('${product.price}',style: TextStyle(fontSize: 50),)
             ],
           ),
         )
