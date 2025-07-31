@@ -1,3 +1,4 @@
+import 'package:e_com_demo/cart_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -39,6 +40,8 @@ class _LoginPageState extends State<LoginPage> {
                   );
                   if(userTxtCtr.text==pwdTxtCtr.text){
                     msg = "Welcome "+userTxtCtr.text;
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage(),));
+                    
                   }else{
                     msg = "Invalid credentials";
                   }

@@ -1,5 +1,6 @@
 import 'package:e_com_demo/cart_page.dart';
 import 'package:e_com_demo/dashboard_page.dart';
+import 'package:e_com_demo/splash_page.dart';
 import 'package:flutter/material.dart';
 
 import 'login_page.dart';
@@ -35,7 +36,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: CartPage(),
+      home: SplashPage(),
     );
   }
 }
